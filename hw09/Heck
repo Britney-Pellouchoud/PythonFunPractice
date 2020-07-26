@@ -1,0 +1,22 @@
+(define (filter fn vals)
+	(cond
+	((null? vals) '())
+	((fn (car vals)) (cons (car vals) (filter fn (cdr vals)))
+		)
+	(else list (filter fn (cdr vals)))
+	)
+	)
+
+
+(define (filter fn vals)
+	(cond
+	((null? vals) '())
+	((fn (car vals)) (cons (car vals) (filter fn (cdr vals)))
+		)
+	(else list (filter fn (cdr vals)))
+	)
+	)
+
+
+`(filter (lambda (,var) ,@filter-expr) ,lst)
+	)

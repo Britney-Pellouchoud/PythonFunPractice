@@ -1,0 +1,1 @@
+(dogs, stack_height, last_height)

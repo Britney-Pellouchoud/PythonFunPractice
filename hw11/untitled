@@ -1,0 +1,60 @@
+(define (helper first counter s)
+		(cond
+			((null? s) (cons-stream (list first counter) nil)
+			((= (car s) first) (helper first (+ 2 counter) (cdr-stream s)))
+			(else (cons-stream (list first counter) (helper (car s) 1 (cdr-stream s)))
+				)
+			)))
+	(if (null? s) nil 
+		(helper (car s) 1 (cdr-stream s))
+)
+
+
+
+
+
+(define (unique-vals k)
+		(cond
+			((null? k) '())
+			((null? (cdr k)) (list (car k)))
+			((= (car k) (car (cdr k))) (unique-vals (cdr k)))
+			(else (cons (car k) (unique-vals (cdr k))))
+
+
+			)
+
+		)
+	(define unique (unique-vals s))
+
+	(define (counter x lst start)
+		(cond 
+			((null? lst) start)
+			((= x (car lst)) (counter x (cdr lst) (+ start 1)))
+			(else (counter x (cdr lst) start))
+
+
+			)
+
+
+		)
+
+
+
+	(define (zipper q lister)
+		(cons-stream (cons (car q) (counter (car q) lister 0))
+			(zipper (cdr q))
+			)
+	)
+
+
+
+			
+
+
+(if (null? s) '()
+(zipper unique-vals s)
+)
+	)
+	
+	
+	
